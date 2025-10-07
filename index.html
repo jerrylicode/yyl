@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>如萬物會說話 - 可持續發展繪本系列</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: 'SF Pro';
+        /* font-weight: 400; */
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'jf-openhuninn-2.1-Regular';
+        /* src: url('./images/jf-openhuninn-2.1.ttf') format('truetype');
+        font-weight: 400; */
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'HanyiSentyRubber-Regular';
+        /* font-weight: 400; */
+        font-style: normal;
+      }
+
+      :root {
+        --body-emphasized-font-family: 'SF Pro', Helvetica, sans-serif;
+        --body-emphasized-font-size: 17px;
+        --body-emphasized-font-style: normal;
+        --body-emphasized-font-weight: 400;
+        --body-emphasized-letter-spacing: -0.43px;
+        --body-emphasized-line-height: 22px;
+        --body-regular-font-family: 'SF Pro', Helvetica, sans-serif;
+        --body-regular-font-size: 17px;
+        --body-regular-font-style: normal;
+        --body-regular-font-weight: 400;
+        --body-regular-letter-spacing: -0.43px;
+        --body-regular-line-height: 22px;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          sans-serif;
+      }
+
+      .font-sf-pro {
+        font-family: var(--body-regular-font-family);
+      }
+
+      .font-openhuninn {
+        font-family: 'jf-openhuninn-2.1', Helvetica, sans-serif;
+      }
+
+      .font-senty {
+        font-family: 'HanyiSentyRubber-Regular', Helvetica, sans-serif;
+      }
+
+      .backdrop-blur-custom {
+        backdrop-filter: blur(25px) brightness(100%);
+        -webkit-backdrop-filter: blur(25px) brightness(100%);
+      }
+
+      .chevron-left-icon {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      .share-icon {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="flex flex-col items-center relative bg-white">
+      <div
+        class="relative w-full max-w-[402px] pb-10"
+        style="
+          background: url(./images/content-area.png) repeat-y center top;
+          background-size: 100% auto;
+          min-height: 100vh;
+          height: 2140px;
+        "
+      >
+        <img
+          class="absolute top-5 left-[calc(50%_-_83px)] w-[165px] h-[55px] object-cover"
+          alt="Y.L. Yang Foundation"
+          src="./images/y-l--yang-foundation-hk-logo-updated-hor--transparent--min-1.png"
+        />
+
+        <section
+          class="flex flex-col items-start gap-5 absolute w-72 h-16 top-[101px] left-[57px]"
+        >
+          <h2
+            class="relative flex items-center justify-center w-full font-openhuninn font-normal text-[#57585A] text-[30px] text-center tracking-[1px] leading-[22px]"
+          >
+            《如萬物會說話》
+          </h2>
+
+          <h3
+            class="relative flex items-center justify-center w-full font-openhuninn font-normal text-[#57585A] text-[30px] text-center tracking-[1px] leading-[22px]"
+          >
+            可持續發展繪本系列
+          </h3>
+        </section>
+
+        <p
+          class="absolute top-[185px] left-[51px] w-[294px] font-openhuninn font-normal text-[#57585a] text-[17px] tracking-[0] leading-[22px]"
+        >
+          在萬物相連的世界裡，<br />
+          每一滴水、一件衣服、一抹色彩，<br />
+          都在輕輕訴說屬於它們的故事......
+        </p>
+
+        <p
+          class="absolute top-[272px] left-[98px] font-openhuninn font-normal text-[#57585a] text-[17px] text-right tracking-[0] leading-[22px]"
+        >
+          我們相信，可持續發展不僅是理念，<br />
+          更是與自然溫柔共處的生活方式。
+        </p>
+
+        <!-- Book 1 -->
+        <div class="absolute top-[350px] left-[62px] w-[277px]">
+          <p
+            class="w-[277px] font-openhuninn font-normal text-[#828486] text-xs tracking-[0.2px] leading-[22px]"
+          >
+            跟隨Dustykid®的腳步走入萬物會說話的世界裡吧！
+          </p>
+          <div
+            class="flex flex-col items-center gap-3.5 p-0"
+            style="padding-top: 5px"
+          >
+            <img
+              class="h-[271px] w-[277px] object-cover"
+              alt="Book 1"
+              src="/images/book1.png"
+            />
+            <button
+              class="flex h-2 w-[110px] flex-col items-center justify-center p-2 bg-[#92d6e4] rounded-lg border border-solid border-white shadow-[0px_4px_4px_#00000040] gap-2.5 relative h-auto hover:opacity-90 transition-opacity"
+            >
+              <span
+                class="font-senty font-normal text-[#454545] text-2xl text-center tracking-[0] leading-6"
+              >
+                閱讀
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="absolute top-[735px] left-[61px] w-[277px]">
+          <div class="flex flex-col items-center gap-3.5 p-0">
+            <img
+              class="w-[277px] h-[270px] object-cover"
+              alt="Book 2"
+              src="./images/book-2.png"
+            />
+            <button
+              class="flex h-2 w-[110px] flex-col items-center justify-center p-2 bg-[#ead654] rounded-lg border border-solid border-white shadow-[0px_4px_4px_#00000040] gap-2.5 relative h-auto hover:opacity-90 transition-opacity"
+            >
+              <span
+                class="font-senty font-normal text-[#454545] text-2xl text-center tracking-[0] leading-6"
+              >
+                閱讀
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="absolute top-[1081px] left-[calc(50%_-_140px)] w-[278px]">
+          <div class="flex flex-col items-center gap-3.5 p-0">
+            <img
+              class="w-[278px] h-[273px] object-cover"
+              alt="Book 3"
+              src="./images/book-3.png"
+            />
+            <button
+              class="flex h-2 w-[110px] flex-col items-center justify-center p-2 bg-[#fcdfeb] rounded-lg border border-solid border-white shadow-[0px_4px_4px_#00000040] gap-2.5 relative h-auto hover:opacity-90 transition-opacity"
+            >
+              <span
+                class="font-senty font-normal text-[#454545] text-2xl text-center tracking-[0] leading-6"
+              >
+                閱讀
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <section class="absolute top-[1450px] left-8 w-[345px] h-[315px]">
+          <h2
+            class="absolute top-0 left-[calc(50%_-_72px)] font-openhuninn font-normal text-[#57585a] text-[32px] text-center tracking-[0] leading-6 whitespace-nowrap"
+          >
+            教育合作
+          </h2>
+
+          <p
+            class="absolute top-[49px] left-[calc(50%_-_172px)] w-[337px] font-openhuninn font-normal text-[#57585a] text-[17px] text-center tracking-[0] leading-[22px]"
+          >
+            歡迎學校、教師及教育機構與我們聯系，<br />
+            共同推廣可持續發展教育。
+          </p>
+
+          <ul
+            class="absolute top-[117px] left-5 w-[278px] font-openhuninn font-normal text-[#57585a] text-[17px] tracking-[0] leading-[22px] list-disc pl-5"
+          >
+            <li>訂購《如萬物會說話》可持續發展繪本系列</li>
+            <li>可持續發展研學及交流</li>
+            <li>學校課程合作</li>
+          </ul>
+
+          <p
+            class="absolute top-[221px] left-[calc(50%_-_158px)] font-openhuninn font-normal text-[#57585a] text-[17px] text-center tracking-[0] leading-[22px]"
+          >
+            歡迎電郵至 info@ylyangfoundation.org<br />
+            我們將盡快與您聯系！
+          </p>
+        </section>
+
+        <section class="absolute top-[1730px] -left-3 w-[542px] h-[300px]">
+          <img
+            class="absolute top-0 left-[163px] w-[375px] h-[300px]"
+            alt="Landing page background"
+            src="./images/-landing-page-bg-1.png"
+          />
+
+          <p
+            class="absolute top-[53px] left-[76px] w-[211px] font-openhuninn font-normal text-[#57585a] text-base text-right tracking-[0] leading-6"
+          >
+            啟發年輕世代<br />
+            以責任與關懷行動，
+          </p>
+
+          <p
+            class="absolute top-[119px] right-[328px] w-[214px] font-openhuninn font-normal text-[#57585a] text-base text-right tracking-[0] leading-6"
+          >
+            建構社會與自然共生的<br />
+            可持續未來。
+          </p>
+        </section>
+
+        <button
+          class="flex flex-col w-[210px] h-[36px] items-center justify-center gap-2.5 p-0 absolute top-[1975px] left-[calc(50%_-_102px)] bg-[#92d6e4] rounded-lg border border-solid border-white shadow-[0px_4px_4px_#00000040] hover:opacity-90 transition-opacity"
+        >
+          <span
+            class="font-openhuninn font-normal text-[#454545] text-2xl text-center tracking-[0] leading-6"
+          >
+            與我們書寫下一頁
+          </span>
+        </button>
+
+        <footer
+          class="absolute top-[2030px] left-[43px] w-80 h-[103px] flex flex-col items-center"
+        >
+          <img
+            class="ml-[-5px] h-[55px] w-[165px] object-cover"
+            alt="Y.L. Yang Foundation"
+            src="./images/y-l--yang-foundation-hk-logo-updated-hor--transparent--min-1.png"
+          />
+
+          <p
+            class="ml-[-5px] h-5 w-[289px] mt-3 font-openhuninn font-normal text-[#57585a] text-[10px] text-center tracking-[0] leading-[normal]"
+          >
+            本網站內容受版權保護。未經我們明確許可，閣下不得授權、分發、二次創作、傳遞、出售或轉售任何本網頁的信息和內容。
+          </p>
+
+          <p
+            class="-ml-1 h-2.5 w-[316px] mt-3 font-openhuninn font-normal text-[#909090] text-[10px] text-center tracking-[0] leading-[normal] whitespace-nowrap"
+          >
+            Copyright © 2025 Y.L. Yang Foundation Limited. All rights reserved.
+          </p>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
