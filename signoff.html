@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>手写电子签名</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      #signature {
+        border: 1px solid #ccc;
+        display: block;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 800px;
+        min-width: 300px;
+        height: 300px;
+        touch-action: none; /* 确保canvas不会触发滚动等默认行为 */
+      }
+
+      .container {
+        width: 100%;
+        max-width: 900px;
+        text-align: center;
+        padding-bottom: 50px; /* 添加底部间距 */
+      }
+
+      .button-container {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #clear {
+        background-color: #dc3545;
+      }
+
+      #clear:hover {
+        background-color: #c82333;
+      }
+
+      #image {
+        max-width: 100%;
+        border: 1px solid #ccc;
+        margin: 20px auto;
+        display: block;
+      }
+
+      /* 确保页面可以正常滚动 */
+      html,
+      body {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <!-- <script src="./signature_pad.umd.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@5.0.2/dist/signature_pad.umd.min.js"></script>
+  <body>
+    <div class="container">
+      <h2>手写电子签名</h2>
+      <canvas id="signature" style="border: 1px solid #ccc"></canvas>
+      <div class="button-container">
+        <button id="clear">清除签名</button>
+        <button id="save">保存签名</button>
+      </div>
+      <h3>签名成功之后保存，会展示保存的签名图片</h3>
+      <img id="image" src="" alt="" />
+      <br />
+      <br />
+      <br />
+    </div>
+  </body>
+  <script>
+    const canvas = document.getElementById('signature')
+    let signaturePad
+
+    // 设置canvas的实际尺寸
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+
+      // 设置canvas的实际像素尺寸
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+
+      // 缩放绘图上下文以匹配设备像素比
+      const ctx = canvas.getContext('2d')
+      ctx.scale(dpr, dpr)
+
+      // 设置canvas的CSS尺寸
+      canvas.style.width = rect.width + 'px'
+      canvas.style.height = rect.height + 'px'
+
+      // 重新初始化签名板
+      if (signaturePad) {
+        const data = signaturePad.toData()
+        signaturePad.clear()
+        signaturePad.fromData(data)
+      }
+    }
+
+    // 等待页面完全加载后初始化
+    window.addEventListener('load', function () {
+      // 初始化canvas尺寸
+      resizeCanvas()
+
+      // 初始化签名板
+      signaturePad = new SignaturePad(canvas, {
+        backgroundColor: 'rgba(255, 255, 255, 1)', // 设置白色背景
+        penColor: 'rgba(0, 0, 0, 1)',
+        minWidth: 2,
+        maxWidth: 4,
+        throttle: 16,
+        minPointDistance: 3
+      })
+    })
+
+    window.addEventListener('resize', resizeCanvas)
+
+    // 优化触摸事件处理 - 只在绘制时阻止滚动
+    let isDrawing = false
+
+    canvas.addEventListener(
+      'touchstart',
+      function (e) {
+        isDrawing = true
+        e.preventDefault()
+      },
+      { passive: false }
+    )
+
+    canvas.addEventListener(
+      'touchmove',
+      function (e) {
+        if (isDrawing) {
+          e.preventDefault()
+        }
+      },
+      { passive: false }
+    )
+
+    canvas.addEventListener(
+      'touchend',
+      function (e) {
+        isDrawing = false
+        e.preventDefault()
+      },
+      { passive: false }
+    )
+
+    // 鼠标事件处理
+    canvas.addEventListener('mousedown', function () {
+      isDrawing = true
+    })
+
+    canvas.addEventListener('mouseup', function () {
+      isDrawing = false
+    })
+
+    // 保存签名
+    document.getElementById('save').addEventListener('click', () => {
+      if (signaturePad.isEmpty()) {
+        alert('请先签名之后再保存')
+      } else {
+        // 创建一个新的canvas来生成最终图片
+        const outputCanvas = document.createElement('canvas')
+        const outputCtx = outputCanvas.getContext('2d')
+
+        // 设置输出canvas的尺寸为原始canvas的逻辑尺寸
+        const rect = canvas.getBoundingClientRect()
+        outputCanvas.width = rect.width
+        outputCanvas.height = rect.height
+
+        // 设置白色背景
+        outputCtx.fillStyle = 'white'
+        outputCtx.fillRect(0, 0, outputCanvas.width, outputCanvas.height)
+
+        // 将签名内容绘制到输出canvas上
+        outputCtx.drawImage(
+          canvas,
+          0,
+          0,
+          canvas.width,
+          canvas.height,
+          0,
+          0,
+          outputCanvas.width,
+          outputCanvas.height
+        )
+
+        const dataUrl = outputCanvas.toDataURL('image/png', 1.0)
+        console.log(dataUrl)
+        document.getElementById('image').setAttribute('src', dataUrl)
+      }
+    })
+
+    // 清除签名
+    document.getElementById('clear').addEventListener('click', () => {
+      signaturePad.clear()
+    })
+  </script>
+</html>
