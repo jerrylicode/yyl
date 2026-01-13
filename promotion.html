@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=no"
+    />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <title>Promotion</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      #demo {
+        display: none;
+        /* height: 33%; */
+      }
+      
+      .footer-bar {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        padding: 30px 15px 15px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        backdrop-filter: blur(5px);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      .btn-main {
+        display: block;
+        background-color: #92d6e4;
+        color: #454545;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+      }
+
+      .demo-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding-bottom: 5px;
+      }
+
+      .btn-demo {
+        font-size: 13px;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 4px;
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        border-radius: 8px;
+        border: none;
+        transition: all 0.3s ease;
+        /* 允许文字换行并居中显示 */
+        white-space: normal;
+        word-break: break-word;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 36px;
+        line-height: 1.2;
+        box-shadow: 0 2px 5px rgba(110, 142, 251, 0.3);
+      }
+
+      .btn-demo:nth-child(3n+1) {
+        background: linear-gradient(135deg, #FF9A9E, #FECFEF);
+        box-shadow: 0 2px 5px rgba(255, 154, 158, 0.3);
+        color: #555;
+      }
+
+      .btn-demo:nth-child(3n+2) {
+        background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+        box-shadow: 0 2px 5px rgba(161, 140, 209, 0.3);
+      }
+
+      .btn-demo:nth-child(3n+3) {
+        background: linear-gradient(135deg, #84fab0, #8fd3f4);
+        box-shadow: 0 2px 5px rgba(132, 250, 176, 0.3);
+        color: #555;
+      }
+
+      .btn-demo:active {
+        transform: translateY(1px) scale(0.98);
+        box-shadow: none;
+        opacity: 0.9;
+      }
+
+      .btn-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 24px;
+        height: 24px;
+        line-height: 22px;
+        text-align: center;
+        font-size: 20px;
+        color: #999;
+        cursor: pointer;
+        background: transparent;
+        border-radius: 50%;
+        z-index: 1001;
+      }
+
+      .btn-close:active {
+        background: #f0f0f0;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="text-wrapper">
+        <div class="text part1">
+          <span class="letter">
+            <div class="character">L</div>
+            <span></span>
+          </span>
+          <span class="letter">
+            <div class="character">o</div>
+            <span></span>
+          </span>
+          <span class="letter">
+            <div class="character">a</div>
+            <span></span>
+          </span>
+          <span class="letter">
+            <div class="character">d</div>
+            <span></span>
+          </span>
+          <span class="letter">
+            <div class="character">i</div>
+            <span></span>
+          </span>
+          <span class="letter">
+            <div class="character">n</div>
+            <span></span>
+          </span>
+          <span class="letter">
+            <div class="character">g</div>
+            <span></span>
+          </span>
+        </div>
+        <div class="how-to"><span>載入中，敬請稍候…</span></div>
+      </div>
+    </div>
+    <div id="demo"></div>
+
+
+
+
+    <!-- Footer Bar -->
+    <div class="footer-bar" style="display: none;">
+      <div class="btn-close">&times;</div>
+      <a href="#" class="btn-main">点击以下链接关注更多产品</a>
+      <div>
+        <div class="demo-list">
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/FW26Coreupdate.pdf" class="btn-demo">FW26 Core update核心更新.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/FW26Seasonalupdate.pdf" class="btn-demo">FW26 Seasonal update季节更新.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/Innovation.pdf" class="btn-demo">Innovation科技创新系列.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/Sustainability.pdf" class="btn-demo">Sustainability环保系列.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/SS27CoreSeasonal.pdf" class="btn-demo">SS27 Core Seasonal核心&季节系列.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/SS27NON-IRON.pdf" class="btn-demo">SS27 NON-IRON免烫系列.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/SS27European.pdf" class="btn-demo">SS27 European欧洲系列.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/SereneWhite.pdf" class="btn-demo">Serene White极静白系列.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/eMC2.0Wrinkle-free.pdf" class="btn-demo">eMC 2.0 Wrinkle-free 面料免烫系列.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/EtherealElegance.pdf" class="btn-demo">Ethereal Elegance空灵致雅.pdf</a>
+          <a href="https://pg.summation.solutions/ylyf/pdf.html?file=https://pg.summation.solutions/ylyf/pdf/zy/Linen.pdf" class="btn-demo">Linen自然织礼系列.pdf</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/pdf.js"></script>
+    <script src="./js/pdf.worker.js"></script>
+    <script src="./js/pdfh5.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      var pdfh5
+      document.body.removeChild(document.querySelector('#app'))
+      document.querySelector('#demo').style.display = 'block'
+
+      // Point to the specific PDF file
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1)
+        var vars = query.split('&')
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split('=')
+          if (pair[0] == variable) {
+            return pair[1]
+          }
+        }
+        return false
+      }
+
+      let pdfUrl = getQueryVariable('file') || './pdf/zy/promotion.pdf'
+      
+      pdfh5 = new Pdfh5(document.querySelector('#demo'), {
+        pdfurl: pdfUrl,
+        textLayer: true
+      })
+      pdfh5.on('complete', function (status, msg, time) {
+        console.log(
+          '状态：' +
+            status +
+            '，总耗时：' +
+            time +
+            '毫秒，总页数：' +
+            this.totalNum,
+          msg
+        )
+      })
+
+      var isClosedByUser = false
+      document.querySelector('.btn-close').addEventListener('click', function() {
+        document.querySelector('.footer-bar').style.display = 'none'
+        isClosedByUser = true
+      })
+
+      pdfh5.on('scroll', function (scrollTop, currentNum) {
+        // 只有当 pdfUrl 包含 promotion.pdf 时才显示 footer-bar
+        if (pdfUrl.indexOf('promotion.pdf') === -1) {
+            return
+        }
+
+        var container = this.viewerContainer
+        var clientHeight = container.clientHeight
+        var scrollHeight = container.scrollHeight
+        if (scrollTop + clientHeight >= scrollHeight - 100) {
+          if (!isClosedByUser) {
+            document.querySelector('.footer-bar').style.display = 'flex'
+          }
+        } else {
+          document.querySelector('.footer-bar').style.display = 'none'
+          isClosedByUser = false
+        }
+      })
+    </script>
+  </body>
+</html>
